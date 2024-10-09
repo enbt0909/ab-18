@@ -25,6 +25,6 @@ document.getElementById("btn").addEventListener("click", function () {
   } else {
     p.innerHTML = `Dr Kunda isch minderjährig. <br> Er musch no ${18 - age} Johr warta.`;
   }
-  p.textContent += ` Sei Alter beträgt ${age} Johr.`;
+  p.textContent += ` Sei Alter bdrägd ${age} Johr.`;
   console.log(p.textContent);
 });
