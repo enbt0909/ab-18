@@ -1,10 +1,9 @@
 document.getElementById("btn").addEventListener("click", function () {
   const input = document.getElementById("birthdate").value;
   const [day, month, year] = input.split(".");
-  
-  // Überprüfen, ob das Eingabefeld leer ist oder ungültige Daten enthält
+
   if (!day || !month || !year || isNaN(day) || isNaN(month) || isNaN(year)) {
-    document.getElementById("age").textContent = "Bitte gib ein gültiges Geburtsdatum ein.";
+    document.getElementById("age").textContent = "Bidde gib oi güldiges Geburdsdadum oi.";
     return;
   }
 
