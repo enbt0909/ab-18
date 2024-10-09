@@ -5,158 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./ab-18.png" type="image/x-icon" />
     <title>Ab 18</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Poppins", Arial, sans-serif;
-        line-height: 1.6;
-        background: linear-gradient(to right, #6a11cb, #2575fc);
-        color: #fff;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      #main {
-        display: flex;
-        /* align-items: center; */
-        justify-content: center;
-        flex-direction: column;
-        /* text-align: center; */
-        padding: 20px;
-        border-radius: 12px;
-        backdrop-filter: blur(10px);
-        background: #ffffff74;
-        max-width: 75vw;
-      }
-
-      h1 {
-        color: #fff;
-        font-size: 3rem;
-        margin-bottom: 20px;
-        font-weight: 600;
-      }
-
-      p {
-        font-size: 1.2rem;
-        margin-bottom: 20px;
-        color: #e0e0e0;
-      }
-
-      input[type="text"] {
-        padding: 12px 15px;
-        font-size: 1rem;
-        margin-right: 10px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        width: 100%;
-        transition: border-color 0.3s ease;
-      }
-
-      input[type="text"]:focus {
-        border-color: #fff;
-        outline: none;
-        background-color: rgba(255, 255, 255, 0.1);
-      }
-
-      button {
-        padding: 12px 20px;
-        background-color: #ff4081;
-        color: #fff;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 1rem;
-        font-weight: 500;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-      }
-
-      button:hover {
-        background-color: #ff80ab;
-        transform: scale(1.05);
-      }
-
-      #age {
-        margin-top: 30px;
-        font-size: 1.4rem;
-        font-weight: bold;
-        color: #ffeb3b;
-      }
-
-      /* Adding a subtle shadow to the input and button */
-      input[type="text"],
-      button {
-        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-      }
-
-      .container {
-        background-color: rgba(255, 255, 255, 0.1);
-        padding: 40px;
-        border-radius: 12px;
-        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
-        text-align: center;
-        backdrop-filter: blur(10px);
-      }
-
-      /* Media queries to ensure the design looks good on mobile */
-      @media (max-width: 600px) {
-        h1 {
-          font-size: 2.5rem;
-        }
-
-        p {
-          font-size: 1rem;
-        }
-
-        input[type="text"] {
-          width: 100%;
-          margin-bottom: 15px;
-        }
-
-        button {
-          width: 100%;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="./static/styles.css">
   </head>
   <body>
     <div id="main">
       <h1>Ab 18</h1>
       <p>
-        Bitte geben Sie Ihr Geburtsdatum ein
+        Geburtsdatum eingeba
         <input type="text" id="birthdate" placeholder="TT.MM.JJJJ" />
       </p>
       <button id="btn">Enter</button>
       <p id="age"></p>
     </div>
-    <script>
-      document.getElementById("btn").addEventListener("click", function () {
-        const input = document.getElementById("birthdate").value;
-        const [day, month, year] = input.split(".");
-        const birthdate = new Date(year, month - 1, day);
-        const now = new Date();
-        const age = now.getFullYear() - birthdate.getFullYear();
-        const m = now.getMonth() - birthdate.getMonth();
-        const d = now.getDate() - birthdate.getDate();
-
-        if (m < 0 || (m === 0 && d < 0)) {
-          age--;
-        }
-
-        const p = document.getElementById("age");
-        if (age >= 18) {
-          p.textContent = "Sie sind volljährig.";
-        } else {
-          p.textContent = "Sie sind minderjährig.";
-        }
-        console.log(p.textContent);
-      });
-    </script>
+    
+    <script src="./is-age.js"></script>
   </body>
 </html>
