@@ -1,30 +1,58 @@
-document.getElementById("btn").addEventListener("click", function () {
-  const input = document.getElementById("birthdate").value;
-  const [day, month, year] = input.split(".");
+document.addEventListener('DOMContentLoaded', function() {
+  const birthdayInput = document.getElementById('birthday-input');
+  const ageOutput = document.getElementById("age");
+  const button = document.getElementById("btn");
 
-  if (!day || !month || !year || isNaN(day) || isNaN(month) || isNaN(year)) {
-    document.getElementById("age").textContent = "Bidde gib oi güldiges Geburdsdadum oi.";
-    return;
+  function formatBirthdayInput(e) {
+    let value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
+    if (value.length > 2) {
+      value = value.slice(0, 2) + '/' + value.slice(2);
+    }
+    if (value.length > 5) {
+      value = value.slice(0, 5) + '/' + value.slice(5);
+    }
+    e.target.value = value;
   }
 
-  const birthdate = new Date(year, month - 1, day);
-  const now = new Date();
-  let age = now.getFullYear() - birthdate.getFullYear();
-  const m = now.getMonth() - birthdate.getMonth();
-  const d = now.getDate() - birthdate.getDate();
+  function calculateAge() {
+    const input = birthdayInput.value;
+    const [day, month, year] = input.split("/");
 
-  if (m < 0 || (m === 0 && d < 0)) {
-    age--;
+    if (!day || !month || !year || isNaN(day) || isNaN(month) || isNaN(year)) {
+      ageOutput.textContent = "Bidde gib oi güldiges Geburdsdadum oi.";
+      return;
+    }
+
+    const birthdate = new Date(year, month - 1, day);
+    const now = new Date();
+    let age = now.getFullYear() - birthdate.getFullYear();
+    const m = now.getMonth() - birthdate.getMonth();
+    const d = now.getDate() - birthdate.getDate();
+
+    if (m < 0 || (m === 0 && d < 0)) {
+      age--;
+    }
+
+    if (age >= 18) {
+      ageOutput.textContent = "Dr Kunda isch König.";
+    } else if (age < 0) {
+      ageOutput.textContent = "Dr Kunda isch no nid mol gebora.";
+    } else {
+      ageOutput.innerHTML = `Dr Kunda isch minderjährig. <br> Er musch no ${18 - age} Johr warta.`;
+    }
+    ageOutput.textContent += ` Sei Alter bdrägd ${age} Johr.`;
+    console.log(ageOutput.textContent);
   }
 
-  const p = document.getElementById("age");
-  if (age >= 18) {
-    p.textContent = "Dr Kunda isch König.";
-  } else if (age < 0) {
-    p.textContent = "Dr Kunda isch no nid mol gebora.";
+  if (birthdayInput) {
+    birthdayInput.addEventListener('input', formatBirthdayInput);
   } else {
-    p.innerHTML = `Dr Kunda isch minderjährig. <br> Er musch no ${18 - age} Johr warta.`;
+    console.error('Element with id "birthday-input" not found.');
   }
-  p.textContent += ` Sei Alter bdrägd ${age} Johr.`;
-  console.log(p.textContent);
+
+  if (button) {
+    button.addEventListener("click", calculateAge);
+  } else {
+    console.error('Element with id "btn" not found.');
+  }
 });
