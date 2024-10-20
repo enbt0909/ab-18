@@ -34,10 +34,6 @@ Dieses Projekt überprüft das Alter eines Benutzers basierend auf seinem Geburt
 - CSS
 - JavaScript
 
-## Mitwirkende
-
-[Eugen Beirit](https://github.com/enbt0909)
-
 ## Lizenz
 
 Dieses Projekt ist unter der MIT-Lizenz lizenziert. Siehe die [LICENSE](./MIT%20License)-Datei für weitere Details.
