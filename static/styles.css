@@ -7,8 +7,8 @@
 body {
   font-family: "Poppins", Arial, sans-serif;
   line-height: 1.6;
-  background: linear-gradient(to right, #6a11cb, #2575fc);
-  color: #fff;
+  background: #AD5936;
+  color: #3A3A44;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -17,31 +17,35 @@ body {
 
 #main {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
   padding: 20px;
   border-radius: 12px;
-  backdrop-filter: blur(10px);
-  background: #ffffff74;
-  max-width: 75vw;
+  background: #AD5936;
+  max-width: 85vw;
+  height: 85.5vh;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 h1 {
   color: #fff;
   font-size: 3rem;
+  text-align: center;
   margin-bottom: 20px;
   font-weight: 600;
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.23em;
+  word-break: break-word;
   margin-bottom: 20px;
-  color: #e0e0e0;
+  color: #fff;
+  text-shadow: 1px 1px 1px #3A3A44;
 }
 
 input[type="text"] {
-  padding: 12px 15px;
-  font-size: 1rem;
+  padding: 40px 15px;
+  font-size: 1em;
   margin-right: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -56,8 +60,8 @@ input[type="text"]:focus {
 }
 
 button {
-  padding: 12px 20px;
-  background-color: #ff4081;
+  padding: 40px 20px;
+  background-color: #AD5936;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -68,7 +72,7 @@ button {
 }
 
 button:hover {
-  background-color: #ff80ab;
+  background-color: #F05628;
   transform: scale(1.05);
 }
 
@@ -77,6 +81,26 @@ button:hover {
   font-size: 1.4rem;
   font-weight: bold;
   color: #ffeb3b;
+}
+
+input[type="text"] {
+  background: #AD5936;
+  border: none;
+}
+
+input[type="text"]:hover {
+  background: #F05628;
+  border: none;
+  transform: scale(1.05);
+}
+
+input[type="text"]::placeholder {
+  color: #fff;
+}
+
+input[type="text"]:focus {
+  background: #AD5936;
+  border: none;
 }
 
 input[type="text"],
